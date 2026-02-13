@@ -25,8 +25,7 @@ jobs:
     - name: Build
       run: GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static" -s -w' -trimpath -o dist/m3u8-downloader.exe
       
-    - name: Create Release
-      uses: phuonghuynh/action-ghrelease@v1.1.0
+    - name: Release
+      uses: softprops/action-gh-release@v2
       with:
-        files: |
-          dist/m3u8-downloader.exe
+        files: dist/m3u8-downloader.exe
